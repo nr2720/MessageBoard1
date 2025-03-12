@@ -1,0 +1,58 @@
+<html>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <body class="body">
+        <header class="header">
+            <h2>Message King</h2>
+        </header>
+        <div class="container">
+            <div class="message-container">
+                <h2>All your messages!</h2>
+
+
+
+            <% messages.map((message) => { %>
+                <ul class="card">
+                    <div class="textbox">
+                        <div class="textContent">
+                            <p class="h1"><%= message.user%></p>    
+                            <p>Id: <%= message.id%></p>
+                        </div>
+                        <p class="p"><%= message.text%></p>
+                    </div>
+
+
+
+
+                <div class="buttonDiv">
+                    <form class="formButton" action="/deleteById" method="post">
+                        <input type="hidden" value='<%= message.id %>' name="messageId">
+                        <input class="button" type="submit" value='Delete'>
+                    </form>
+                    <form class="formButton" action="/messageById" method="post">
+                        <input type="hidden" value='<%= message.id %>' name="messageId">
+                        <input class="button" type="submit" value='See more'>
+                    </form>
+                </div>
+                </ul>
+                <%})%>
+
+
+
+
+
+            </div>
+            <div class="form">
+                <form action="/messageById" method="post" style="display: flex; flex-direction: column; gap: 5px;">
+                    <label for="messageId">Search a message by Id</label>
+                    <input type="number" id="messageId" name="messageId" required>
+                    <input type="submit" value="Search!">
+                </form>
+            </div>
+
+            <form action="/new" method="get">
+                <input type="submit" value="Post a message">
+            </form>
+
+        </div>
+    </body>
+</html>

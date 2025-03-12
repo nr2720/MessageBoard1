@@ -1,0 +1,19 @@
+<html>
+    <body style="display: flex; align-items:start; justify-content:center;">
+        <div class="card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <h2>Whats up, write a messahe to a user!</h2>
+
+                <form style="width: 500px; height: 500px; display: flex; flex-direction: column; align-items: start; gap: 15px;" action="/new" method="post">
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="User">Username</label>
+                        <input type="text" name="username">
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="newMessage">Message</label>
+                        <input style="width: 100%; " type="text" name="message">
+                    </div>
+                    <input type="submit" value="Send your message">
+                </form>
+        </div>
+    </body>
+</html>
