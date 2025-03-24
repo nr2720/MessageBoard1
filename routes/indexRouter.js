@@ -1,7 +1,17 @@
 const { Router } = require('express');
 const indexRouter = Router();
-const {messages, getMessageByIdF} = require('../db');
+
+const {messages, getMessageByIdF, users} = require('../db');
 const {getMessageById, deleteMessageById} = require('../controllers/messagesControllers');
+
+
+//controller
+const userController = require('../controllers/userController');
+
+
+
+
+
 
 //First Get Request
 indexRouter.get('/', (req, res) => {
@@ -12,7 +22,6 @@ indexRouter.get('/', (req, res) => {
 
 //Post search message by Id router
 indexRouter.post('/messageById', async (req, res) => {
-  
   const {messageId} = req.body; 
   const message = await getMessageById(messageId);
   if (!message) {
@@ -30,6 +39,40 @@ indexRouter.post('/deleteById', async (req, res) => {
   await deleteMessageById(messageId);
   res.redirect('/');
 })
+
+
+
+//Create User
+indexRouter.get('/createUser', (req, res) => {
+  res.render('createUser')
+});
+
+
+indexRouter.post("/createUser", userController.userCreatePost);
+
+
+
+
+
+
+
+
+
+indexRouter.get('/users', (req, res) => {
+  const activeUsers = users.getUsers();
+  res.render('users', {users: activeUsers});
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
 

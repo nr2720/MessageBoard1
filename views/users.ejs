@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Create User</title>
+    </head>
+    <body>
+    <ul>
+        <% if (users) {%>
+        <% users.forEach(user => { %>
+        <li>
+            ID: <%= user.id %>, Name: <%= user.firstName %> <%= user.lastName %>, email: <%= user.email %>, age: <%= user.age %>
+            <p><%= user.bio %></p>
+        </li>
+    <% })} %>
+    </ul>
+    <a href="/createUser">Create a user</a>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Search User</title>
+  </head>
+<body>
+  <h1>User Search</h1>
+  <%- include("partials/errors.ejs") %>
+  <form action="/search/userid" method="POST">
+    <label for="id">ID: </label>
+    <input type="text" name="id" id="id" required>
+    <button type="submit">Submit</button>
+  </form>
+  <a href="/">Bsack to home</a>
+</body>
+</html>

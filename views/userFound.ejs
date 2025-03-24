@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>The user</title>
+    </head>
+    <body>
+    <% if(user) {%>
+    <ul>
+        ID: <%= user.id %>, Name: <%= user.firstName %> <%= user.lastName %>, email: <%= user.email %>, age: <%= user.age %>
+        <p><%= user.bio %></p>
+    </ul>
+<% } %>
+    <a href="/createUser">Create a user</a>
+    </body>
+</html>

@@ -22,9 +22,13 @@ app.set('view engine', 'ejs');
 const router = express.Router();
 const indexRouter = require('./routes/indexRouter');
 const newMessageRouter = require('./routes/newMessageRouter');
+const searchRouter = require('./routes/searchRouter');
+
 
 app.use('/', indexRouter);
 app.use('/new', newMessageRouter);
+app.use('/search', searchRouter);
+
 
 
 
